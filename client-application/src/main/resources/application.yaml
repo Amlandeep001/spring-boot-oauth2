@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: client-application
+  security:
+    oauth2:
+      client:
+        registration:
+          golf-client:
+            provider: golf-provider
+            client-id: golf-client
+            client-secret: golf-secret
+            authorization-grant-type: client_credentials
+            scope: read
+        provider:
+          golf-provider:
+            token-uri: http://localhost:9000/oauth2/token
