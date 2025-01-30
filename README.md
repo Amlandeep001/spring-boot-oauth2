@@ -1,6 +1,6 @@
 # Golf Academy OAuth2 Implementation
 
-A robust OAuth2 implementation for the Golf Academy application using Spring Boot 3.3+. This project demonstrates a complete OAuth2 setup with an authorization server, resource server, and client applications.
+A robust OAuth2 implementation for the Golf Academy application using Spring Boot 3.4+. This project demonstrates a complete OAuth2 setup with an authorization server, resource server, and client applications.
 
 In particular this application is showing off the new RestClient support for OAuth2 in Spring Security 6.4. 
 
@@ -30,7 +30,7 @@ graph TD
 ## Project Requirements
 
 - Java 21
-- Spring Boot 3.4.2+
+- Spring Boot 3.4.0+
 - Maven 3.6+
 - Spring Security 6.4+
 
