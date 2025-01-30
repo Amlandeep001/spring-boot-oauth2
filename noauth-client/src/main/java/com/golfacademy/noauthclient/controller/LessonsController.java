@@ -1,5 +1,8 @@
 package com.golfacademy.noauthclient.controller;
 
+import java.net.URI;
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -13,11 +16,13 @@ import org.springframework.web.server.ResponseStatusException;
 public class LessonsController
 {
 	private final RestClient restClient;
+	private final URI baseUrl;
 
-	public LessonsController(RestClient.Builder builder)
+	public LessonsController(RestClient.Builder builder, @Value("${resource.server.baseUrl}") URI baseUrl)
 	{
+		this.baseUrl = baseUrl;
 		this.restClient = builder
-				.baseUrl("http://localhost:8081")
+				.baseUrl(baseUrl)
 				.defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
 				.defaultStatusHandler(HttpStatusCode::is4xxClientError, (request, response) ->
 				{
@@ -39,7 +44,7 @@ public class LessonsController
 	public String fetchLessons()
 	{
 		return restClient.get()
-				.uri("http://localhost:8081/lessons")
+				.uri("/lessons")
 				.retrieve()
 				.body(String.class);
 	}

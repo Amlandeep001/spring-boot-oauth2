@@ -3,3 +3,6 @@ spring:
     name: noauth-client
 server:
   port: 8085
+resource:
+  server:
+    baseUrl: http://localhost:8081
