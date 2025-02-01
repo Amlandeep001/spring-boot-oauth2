@@ -16,11 +16,9 @@ import org.springframework.web.server.ResponseStatusException;
 public class LessonsController
 {
 	private final RestClient restClient;
-	private final URI baseUrl;
 
 	public LessonsController(RestClient.Builder builder, @Value("${resource.server.baseUrl}") URI baseUrl)
 	{
-		this.baseUrl = baseUrl;
 		this.restClient = builder
 				.baseUrl(baseUrl)
 				.defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
